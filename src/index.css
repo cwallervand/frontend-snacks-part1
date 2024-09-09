@@ -30,7 +30,7 @@ dialog {
   }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 360px) {
   .quote {
     @apply p-3 items-start;
 
