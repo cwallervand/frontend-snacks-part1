@@ -23,7 +23,9 @@ function App() {
         <button autoFocus onClick={() => dialogRef.current?.close()}>
           Close
         </button>
-        <QuoteCard />
+        <div className="quoteContainer">
+          <QuoteCard />
+        </div>
         <form method="dialog">
           <button>Ok</button>
         </form>

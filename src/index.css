@@ -30,7 +30,12 @@ dialog {
   }
 }
 
-@media screen and (max-width: 720px) {
+.quoteContainer {
+  container-name: quote-container;
+  container-type: inline-size;
+}
+
+@container quote-container (max-width: 360px) {
   .quote {
     @apply p-3 items-start;
 
