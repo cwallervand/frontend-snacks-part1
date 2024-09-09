@@ -3,11 +3,9 @@ function App() {
     <main className="p-12">
       <div className="quoteContainer">
         <div className="quote bg-indigo-400 text-white flex flex-col items-center rounded-lg p-12 w-full">
-          <div className="quotationMark">
+          <div className="quotationMark w-12 h-12">
             <svg
-              className="w-10 h-10"
-              // width="50pt"
-              // height="50pt"
+              className="w-full h-full"
               version="1.1"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +42,6 @@ function App() {
                 />
               </svg>
             </div>
-
             <cite>ChatGPT</cite>
           </div>
         </div>

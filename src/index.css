@@ -16,3 +16,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media screen and (max-width: 720px) {
+  .quote {
+    @apply p-3 items-start;
+
+    .quotationMark {
+      @apply w-6 h-6;
+    }
+
+    .quoteeInfo-profilePicture {
+      @apply hidden;
+    }
+
+    cite {
+      &::before {
+        content: '- ';
+      }
+    }
+  }
+}
