@@ -67,6 +67,13 @@ article {
 }
 ```
 
+cqw: 1% of a query container's width
+cqh: 1% of a query container's height
+cqi: 1% of a query container's inline size
+cqb: 1% of a query container's block size
+cqmin: The smaller value of either cqi or cqb
+cqmax: The larger value of either cqi or cqb
+
 (We don't need to write these styles inside a container query. They will respond to the container, as long as one is defined.)
 
 ## Resources
