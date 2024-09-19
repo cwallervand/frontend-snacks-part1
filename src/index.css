@@ -35,6 +35,30 @@ dialog {
   container-type: inline-size;
 }
 
+.container1 {
+  container-name: container1;
+  container-type: inline-size;
+
+  p {
+    padding: 5cqi;
+  }
+}
+
+.container2 {
+  container-name: container2;
+  container-type: inline-size;
+}
+
+.container3 {
+  container-name: container3;
+  container-type: inline-size;
+}
+
+.container4 {
+  container-name: container4;
+  container-type: size;
+}
+
 @container quote-container (max-width: 360px) {
   .quote {
     @apply p-3 items-start;
@@ -52,5 +76,17 @@ dialog {
         content: '- ';
       }
     }
+  }
+}
+
+@container container3 (height > 50px) {
+  p {
+    font-weight: bold;
+  }
+}
+
+@container container4 (height > 100px) {
+  p {
+    font-weight: bold;
   }
 }
