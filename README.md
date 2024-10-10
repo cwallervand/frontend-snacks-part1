@@ -1,4 +1,6 @@
-# CSS Container Queries
+# CSS and HTML treats
+
+## CSS Container Queries
 
 The main idea of CSS Container Queries is to register an element as a “container” and apply styles to other elements when the container element meets certain conditions.
 Typical example:
@@ -40,23 +42,23 @@ Container Style Queries are aslo a thing where you can query a container’s sty
 }
 ```
 
-## About `container-type`
+### About `container-type`
 
 Possible values are `normal`, `size`, `inline-size`
 
-### `normal`
+#### `normal`
 
 This indicates that the element is a container that can be queried by its styles rather than size. Querying by style has limited support.
 
-### `size`
+#### `size`
 
 The size refers to the container’s inline (width) or block direction (height), whichever is larger.
 
-### `inline-size`
+#### `inline-size`
 
 The inline-size refers to the container’s width in the default horizontal writing mode.
 
-## Container units
+### Container units
 
 You may already be familiar with viewport units, which can be used for sizing elements relative to the viewport. Container units enable us to instead size elements relative to the container.
 In the example below the unit `cqi` is used to specify a percentage of the container's inline size.
@@ -66,6 +68,13 @@ article {
   padding: 4cqi;
 }
 ```
+
+cqw: 1% of a query container's width
+cqh: 1% of a query container's height
+cqi: 1% of a query container's inline size
+cqb: 1% of a query container's block size
+cqmin: The smaller value of either cqi or cqb
+cqmax: The larger value of either cqi or cqb
 
 (We don't need to write these styles inside a container query. They will respond to the container, as long as one is defined.)
 
