@@ -6,7 +6,13 @@ function App() {
   const dialogRef = useRef();
   return (
     <main className="p-12">
+      <h1 className="text-center text-4xl font-bold mb-8">
+        CSS and HTML Treats
+      </h1>
       <section>
+        <h2 className="text-center text-2xl font-bold mb-4">
+          CSS Container Queries
+        </h2>
         <div className="quoteContainer">
           <QuoteCard />
         </div>
@@ -19,49 +25,65 @@ function App() {
             Open modal
           </button>
         </div>
-      </section>
-
-      <section className="mt-8 grid grid-cols-4 gap-4">
-        <div className="container1 bg-indigo-400 p-4 rounded-md">
-          <p>This p-tag has padding relative to the query container`s width.</p>
-        </div>
-        <div className="container2 bg-indigo-400 rounded-md p-2">
-          <p>
-            This p-tag has bold font when container width is greater than 250px
-          </p>
-        </div>
-        <div className="container3 bg-indigo-400 rounded-md p-2">
-          <p>
-            Styling of this p-tag doenst work because the query checks the
-            height of the container, but the container is using inline-size
-          </p>
-        </div>
-        <div className="container4 bg-indigo-400 rounded-md p-2">
-          <p>
-            This p-tag has bold font when container width is greater than 100px
-          </p>
-        </div>
-        <div className="container5 bg-indigo-400 rounded-md p-2">
-          <div>
+        <section className="mt-8 grid grid-cols-4 gap-4">
+          <div className="container1 bg-indigo-400 p-4 rounded-md">
+            <p>
+              This p-tag has padding relative to the query container`s width.
+            </p>
+          </div>
+          <div className="container2 bg-indigo-400 rounded-md p-2">
+            <p>
+              This p-tag has bold font when container width is greater than
+              250px
+            </p>
+          </div>
+          <div className="container3 bg-indigo-400 rounded-md p-2">
+            <p>
+              Trying to style this based on container heigh, but the
+              `container-type` is using `inline-size` so it doenst work.
+            </p>
+          </div>
+          <div className="container4 bg-indigo-400 rounded-md p-2">
             <p>
               This p-tag has bold font when container width is greater than
               100px
             </p>
           </div>
+          <div className="container5 bg-indigo-400 rounded-md p-2">
+            <div>
+              <p>
+                This p-tag has bold font when container width is greater than
+                100px
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <dialog ref={dialogRef} className="w-64">
+          <button autoFocus onClick={() => dialogRef.current?.close()}>
+            Close
+          </button>
+          <div className="quoteContainer">
+            <QuoteCard />
+          </div>
+          <form method="dialog">
+            <button>Ok</button>
+          </form>
+        </dialog>
+      </section>
+      <section>
+        <h2 className="text-center text-2xl font-bold mb-4">:has selector</h2>
+        <div className="concur rounded rounded-lg border border-2 p-8">
+          <div className="flex gap-2">
+            <input type="checkbox" id="has-checkbox" />
+            <label htmlFor="has-checkbox">Do you concur?</label>
+          </div>
+          <div className="concur-warning italic text-lg py-4 hidden">
+            By concuring you agree to my terms and conditions. Your entire life
+            is now mine. Thank you, come again!
+          </div>
         </div>
       </section>
-
-      <dialog ref={dialogRef} className="w-64">
-        <button autoFocus onClick={() => dialogRef.current?.close()}>
-          Close
-        </button>
-        <div className="quoteContainer">
-          <QuoteCard />
-        </div>
-        <form method="dialog">
-          <button>Ok</button>
-        </form>
-      </dialog>
     </main>
   );
 }

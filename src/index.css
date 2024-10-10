@@ -30,7 +30,8 @@ dialog {
   }
 }
 
-@media screen and (max-width: 360px) {
+/* No more max-width: 540px */
+@media screen and (width < 540px) {
   .quote {
     @apply p-3 items-start;
 
@@ -79,7 +80,8 @@ dialog {
   container-type: size;
 }
 
-@container quote-container (max-width: 360px) {
+/* No more max-width: 540px */
+@container quote-container (width < 540px) {
   .quote {
     @apply p-3 items-start;
 
@@ -99,99 +101,9 @@ dialog {
   }
 }
 
-@container container3 (height > 50px) {
+@container container2 (width > 250px) {
   p {
     font-weight: bold;
-  }
-}
-
-@container container4 (height > 100px) {
-  p {
-    font-weight: bold;
-  }
-}
-
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-dialog {
-  &::backdrop {
-    background-image: linear-gradient(
-      45deg,
-      magenta,
-      rebeccapurple,
-      dodgerblue,
-      green
-    );
-    opacity: 0.75;
-  }
-}
-
-.quoteContainer {
-  container-name: quote-container;
-  container-type: inline-size;
-}
-
-.container1 {
-  container-name: container1;
-  container-type: inline-size;
-
-  p {
-    padding: 5cqi;
-  }
-}
-
-.container2 {
-  container-name: container2;
-  container-type: inline-size;
-}
-
-.container3 {
-  container-name: container3;
-  container-type: inline-size;
-}
-
-.container4 {
-  container-name: container4;
-  container-type: size;
-}
-
-@container quote-container (max-width: 360px) {
-=======
-@media screen and (max-width: 360px) {
->>>>>>> main
-  .quote {
-    @apply p-3 items-start;
-
-    .quotationMark {
-      @apply w-6 h-6;
-    }
-
-    .quoteeInfo-profilePicture {
-      @apply hidden;
-    }
-
-    cite {
-      &::before {
-        content: '- ';
-      }
-    }
   }
 }
 
@@ -205,4 +117,23 @@ dialog {
   p {
     font-weight: bold;
   }
-} */
+}
+
+.concur {
+  .concur-warning {
+    transition: height 2s ease, opacity 2s ease;
+    /* height: 0; */
+    opacity: 0;
+    /* overflow: hidden; */
+  }
+}
+
+.concur:has(input:checked) {
+  background-color: theme(colors.red.400);
+  border-color: theme(colors.red.700);
+
+  .concur-warning {
+    opacity: 0.5;
+    display: block;
+  }
+}
