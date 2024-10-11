@@ -80,7 +80,15 @@ cqmax: The larger value of either cqi or cqb
 
 ## Resources
 
+### Container queries
+
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries
 - https://css-tricks.com/css-container-queries/
 - https://caniuse.com/css-container-queries-style
 - https://developer.mozilla.org/en-US/blog/getting-started-with-css-container-queries/
+
+### :has operator
+
+- https://www.joshwcomeau.com/css/has/
+- https://www.developerway.com/posts/replacing-react-with-css
+- https://tobiasahlin.com/blog/previous-sibling-css-has/

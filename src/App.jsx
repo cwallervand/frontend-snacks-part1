@@ -78,10 +78,21 @@ function App() {
             <input type="checkbox" id="has-checkbox" />
             <label htmlFor="has-checkbox">Do you concur?</label>
           </div>
-          <div className="concur-warning italic text-lg py-4 hidden">
-            By concuring you agree to my terms and conditions. Your entire life
-            is now mine. Thank you, come again!
+          <div className="concur-warning italic text-lg">
+            <div className="overflow-hidden">
+              By concuring you agree to my terms and conditions. Your entire
+              life is now mine. Thank you, come again!
+            </div>
           </div>
+        </div>
+        <div className="after-concur rounded rounded-md my-4 p-2">
+          Well, hello there!
+        </div>
+        <div className="flex">
+          <div className="square rounded rounded-md w-10 h-10  bg-indigo-400 m-4"></div>
+          <div className="square rounded rounded-md w-10 h-10  bg-indigo-400 m-4"></div>
+          <div className="circle rounded rounded-full w-10 h-10  bg-indigo-400 m-4"></div>
+          <div className="square rounded rounded-md w-10 h-10  bg-indigo-400 m-4"></div>
         </div>
       </section>
     </main>

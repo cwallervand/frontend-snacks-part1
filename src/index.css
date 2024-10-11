@@ -121,11 +121,14 @@ dialog {
 
 .concur {
   .concur-warning {
-    transition: height 2s ease, opacity 2s ease;
-    /* height: 0; */
-    opacity: 0;
-    /* overflow: hidden; */
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.1s ease-in;
   }
+}
+
+.concur:has(input:checked) + .after-concur {
+  background-color: theme(colors.indigo.400);
 }
 
 .concur:has(input:checked) {
@@ -133,7 +136,11 @@ dialog {
   border-color: theme(colors.red.700);
 
   .concur-warning {
-    opacity: 0.5;
-    display: block;
+    grid-template-rows: 1fr;
   }
+}
+
+.square:has(+ .circle) {
+  width: 64px;
+  height: 64px;
 }
