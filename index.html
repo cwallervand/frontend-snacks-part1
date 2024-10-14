@@ -186,15 +186,40 @@
             </div>
           </div>
         </div>
-        <div class="after-concur rounded rounded-md my-4 p-2">
+        <div class="after-concur rounded rounded-md mt-4 p-2">
           Well, hello there!
         </div>
-        <div>
-          <fieldset>
-            <legend></legend>
+        <form id="addressForm" class="addressForm" class="mt-8">
+          <fieldset id="addressFieldset" class="p-4 w-2/5">
+            <legend class="text-lg mb-2">Adresse</legend>
+            <div class="flex flex-col gap-2">
+              <div class="flex justify-between items-center">
+                <label for="streetAddress">Gateadresse:</label>
+                <input type="text" name="streetAddress" id="streetAddress" />
+              </div>
+              <div class="flex justify-between items-center">
+                <label for="postalCode">Postkode:</label>
+                <input type="number" name="postalCode" id="postalCode" />
+              </div>
+              <div class="flex justify-between items-center">
+                <label for="postalCodePlace">Poststed:</label>
+                <input
+                  type="text"
+                  name="postalCodePlace"
+                  id="postalCodePlace"
+                />
+              </div>
+            </div>
           </fieldset>
-        </div>
-        <div class="flex">
+          <button
+            type="submit"
+            class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full"
+          >
+            Submit
+          </button>
+        </form>
+
+        <div class="flex mt-8">
           <div
             class="square rounded rounded-md w-10 h-10 bg-indigo-400 m-4"
           ></div>
@@ -439,6 +464,18 @@
       function closeModal() {
         document.getElementById('dialog')?.close();
       }
+
+      function submitAddressForm(ev) {
+        console.log('submitAddressForm');
+        ev.preventDefault();
+        document
+          .querySelector('#addressForm #streetAddress')
+          .classList.add('error');
+      }
+
+      document
+        .querySelector('#addressForm')
+        .addEventListener('submit', submitAddressForm);
     </script>
   </body>
 </html>
