@@ -111,8 +111,8 @@
           </div>
         </section>
 
-        <dialog id="dialog" class="w-64">
-          <button autofocus onClick="closeModal()">Close</button>
+        <dialog id="jokeDialog" class="w-64">
+          <button onClick="closeModal()">Close</button>
           <div class="quoteContainer">
             <div
               class="quote bg-indigo-400 text-white flex flex-col items-center rounded-lg p-12 w-full"
@@ -168,7 +168,25 @@
           </div>
           <!-- TODO: Add info about method dialog -->
           <form method="dialog">
-            <button>Ok</button>
+            <div class="flex flex-col justify-between items-center">
+              <label for="jokeOpinions">How did you like the joke?</label>
+              <select name="favAnimal" id="jokeOpinions" required autofocus>
+                <option></option>
+                <option>ROFL</option>
+                <option>Yes</option>
+                <option>Meh...</option>
+                <option>No</option>
+              </select>
+            </div>
+            <div class="flex gap-2">
+              <button type="submit" value="submitButton">Ok</button>
+              <input
+                type="submit"
+                aria-label="close"
+                value="Close"
+                formnovalidate
+              />
+            </div>
           </form>
         </dialog>
       </section>
@@ -457,13 +475,22 @@
     </main>
 
     <script>
+      const jokeDialog = document.getElementById('jokeDialog');
+
       function showModal() {
-        console.log('show modal', document.getElementById('dialog'));
-        document.getElementById('dialog')?.showModal();
+        console.log('show modal', jokeDialog);
+        jokeDialog.showModal();
       }
       function closeModal() {
-        document.getElementById('dialog')?.close();
+        jokeDialog.close();
       }
+
+      jokeDialog.addEventListener('close', () => {
+        console.log(
+          'The return value from the dialog was:',
+          jokeDialog.returnValue
+        );
+      });
 
       function submitAddressForm(ev) {
         console.log('submitAddressForm');

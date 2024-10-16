@@ -78,6 +78,8 @@ cqmax: The larger value of either cqi or cqb
 
 (We don't need to write these styles inside a container query. They will respond to the container, as long as one is defined.)
 
+## HTML dialog
+
 ## Resources
 
 ### Container queries
@@ -86,6 +88,8 @@ cqmax: The larger value of either cqi or cqb
 - https://css-tricks.com/css-container-queries/
 - https://caniuse.com/css-container-queries-style
 - https://developer.mozilla.org/en-US/blog/getting-started-with-css-container-queries/
+
+### HTML dialog
 
 ### :has operator
 
