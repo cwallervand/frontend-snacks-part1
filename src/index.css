@@ -140,6 +140,10 @@ dialog {
   }
 }
 
+#addressFieldset {
+  border-left: 2px solid transparent;
+}
+
 #addressFieldset:has(.error) {
   border-left: 2px solid theme(colors.red.700);
 }
