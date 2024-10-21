@@ -17,6 +17,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+input {
+  &[type='text'],
+  &[type='number'] {
+    background-color: white;
+    color: black;
+  }
+}
+
 dialog {
   &::backdrop {
     background-image: linear-gradient(
