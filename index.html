@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS and HTML Treats</title>
+    <title>Front-end snacks, episode 1</title>
     <script type="module" src="/src/main.jsx"></script>
   </head>
   <body>
@@ -15,6 +15,16 @@
         <h2 class="text-center text-2xl font-bold mb-4">
           CSS Container Queries
         </h2>
+        <p class="text-center my-4">
+          The idea of CSS Container Queries is to register an element as a
+          “container” and apply styles to it's children when the container
+          element meets certain conditions.
+        </p>
+        <p class="text-center my-4">
+          <a href="https://caniuse.com/css-container-queries">
+            Can I use it?
+          </a>
+        </p>
         <div class="quoteContainer">
           <div
             class="quote bg-indigo-400 text-white flex flex-col items-center rounded-lg p-12 w-full"
@@ -101,16 +111,7 @@
               100px
             </p>
           </div>
-          <div class="container5 bg-indigo-400 rounded-md p-2">
-            <div>
-              <p>
-                This p-tag has bold font when container width is greater than
-                100px
-              </p>
-            </div>
-          </div>
         </section>
-
         <dialog id="jokeDialog" class="w-64">
           <button onClick="closeModal()">Close</button>
           <div class="quoteContainer">
@@ -166,8 +167,18 @@
               </div>
             </div>
           </div>
-          <!-- TODO: Add info about method dialog -->
-          <form method="dialog">
+          <p class="text-center my-4 p-4">
+            The <code>dialog</code> elements gives you all of the modal niceties
+            for free!
+          </p>
+          <p class="text-center p-4 my-4">
+            When a <code>form</code> within a <code>dialog</code> is submitted
+            via the dialog method, the dialog box closes, the states of the form
+            controls are saved but not submitted, and the
+            <code>returnValue</code> property gets set to the value of the
+            button that was activated.
+          </p>
+          <form id="dialogForm" method="dialog">
             <div class="flex flex-col justify-between items-center">
               <label for="jokeOpinions">How did you like the joke?</label>
               <select name="favAnimal" id="jokeOpinions" required autofocus>
@@ -190,8 +201,15 @@
           </form>
         </dialog>
       </section>
-      <section>
+      <section class="mt-8">
         <h2 class="text-center text-2xl font-bold mb-4">:has selector</h2>
+        <p class="text-center my-4">
+          The CSS <code>:has</code> selector can be used to style an element
+          based on other elements inside it, or it's siblings.
+        </p>
+        <p class="text-center my-4">
+          <a href="https://caniuse.com/css-has">Can I use it?</a>
+        </p>
         <div class="concur rounded rounded-lg border border-2 p-8">
           <div class="flex gap-2">
             <input type="checkbox" id="has-checkbox" />
@@ -253,12 +271,28 @@
         </div>
       </section>
       <section>
-        <h2 class="text-center text-2xl font-bold mb-4">
-          Image lazy loading
-          <p>
-            <a href="https://caniuse.com/loading-lazy-attr">Can I use it?</a>
-          </p>
-        </h2>
+        <h2 class="text-center text-2xl font-bold mb-4">Image lazy loading</h2>
+        <p class="text-center mt-4">
+          With the <code>loading</code> attribute, images and iframes can now be
+          lazely loaded. By setting <code>loading="lazy"</code> on an image or
+          iframe, the browser will only load the image when it enters the
+          viewport.
+        </p>
+        <p class="text-center my-4">
+          <a href="https://caniuse.com/loading-lazy-attr">Can I use it?</a>
+        </p>
+        <p class="text-center mt-4">
+          If you need to set background images, you can use the
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
+          >
+            Intersection Observer API
+          </a>
+        </p>
+        <p class="text-center my-4">
+          <a href="https://caniuse.com/intersectionobserver">Can I use it?</a>
+        </p>
+
         <div class="flex flex-col">
           <div class="flex justify-center mb-12">
             <img
@@ -470,6 +504,16 @@
               loading="lazy"
             />
           </div>
+          <div
+            class="toBeObserved text-center bg-indigo-400 flex justify-center content-center items-center"
+          >
+            <p class="bg-indigo-600 flex text-center items-center text-xl px-8">
+              THIS WILL BE OBSERVED
+            </p>
+          </div>
+          <footer class="mt-8">
+            <p class="text-center text-6xl">That's all folks!</p>
+          </footer>
         </div>
       </section>
     </main>
@@ -486,6 +530,8 @@
       }
 
       jokeDialog.addEventListener('close', () => {
+        const dialogForm = document.getElementById('dialogForm');
+
         console.log(
           'The return value from the dialog was:',
           jokeDialog.returnValue
@@ -503,6 +549,36 @@
       document
         .querySelector('#addressForm')
         .addEventListener('submit', submitAddressForm);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const elementsToBeObserved = document.querySelectorAll('.toBeObserved');
+
+        // creates the observer
+        const elementObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                console.log('IS INTERSECTING');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+
+          {
+            // An element or document object which is an ancestor of the intended target, whose bounding rectangle will be considered the viewport.
+            // null = document viewport
+            root: null,
+            //  A string which specifies a set of offsets to add to the root's bounding_box when calculating intersections, effectively shrinking or growing the root for calculation purposes.
+            rootMargin: '0px 0px',
+            // Specifies the intersection threshold when the callback function will be executed.
+            threshold: 1,
+          }
+        );
+
+        elementsToBeObserved.forEach((element) =>
+          elementObserver.observe(element)
+        );
+      });
     </script>
   </body>
 </html>

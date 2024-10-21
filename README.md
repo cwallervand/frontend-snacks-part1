@@ -2,7 +2,7 @@
 
 ## CSS Container Queries
 
-The main idea of CSS Container Queries is to register an element as a “container” and apply styles to other elements when the container element meets certain conditions.
+The idea of CSS Container Queries is to register an element as a “container” and apply styles to it's children when the container element meets certain conditions.
 Typical example:
 
 ```css
@@ -80,6 +80,25 @@ cqmax: The larger value of either cqi or cqb
 
 ## HTML dialog
 
+The `dialog` elements gives you all of the modal nicetiesor free!
+
+When a `form` within a `dialog` is submitted
+via the dialog method, the dialog box closes, the states of the form
+controls are saved but not submitted, and the `returnValue` property gets set to the value of the
+button that was activated.
+
+## :has selector
+
+The CSS `:has` selector can be used to style an element based on other elements inside it, or it's siblings.
+
+## Image lazy loading
+
+With the `loading` attribute, images and iframes can now be lazely loaded. By setting `loading="lazy"` on an image or iframe,
+the browser will only load the image when it enters the viewport.
+To avoid shifts in layout, the `width` and `height` attributes should be set.
+
+If you need to change a background image, you can use the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+
 ## Resources
 
 ### Container queries
@@ -91,8 +110,15 @@ cqmax: The larger value of either cqi or cqb
 
 ### HTML dialog
 
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
+
 ### :has operator
 
 - https://www.joshwcomeau.com/css/has/
 - https://www.developerway.com/posts/replacing-react-with-css
 - https://tobiasahlin.com/blog/previous-sibling-css-has/
+
+### Image lazy loading
+
+- https://www.debugbear.com/blog/defer-offscreen-images
+- https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API

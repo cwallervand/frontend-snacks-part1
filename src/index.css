@@ -25,6 +25,10 @@ input {
   }
 }
 
+a {
+  text-decoration: underline;
+}
+
 dialog {
   &::backdrop {
     background-image: linear-gradient(
@@ -148,6 +152,11 @@ dialog {
   }
 }
 
+.square:has(+ .circle) {
+  width: 64px;
+  height: 64px;
+}
+
 #addressFieldset {
   border-left: 2px solid transparent;
 }
@@ -156,7 +165,10 @@ dialog {
   border-left: 2px solid theme(colors.red.700);
 }
 
-.square:has(+ .circle) {
-  width: 64px;
-  height: 64px;
+.toBeObserved {
+  height: 1000px;
+
+  p {
+    height: 100px;
+  }
 }
