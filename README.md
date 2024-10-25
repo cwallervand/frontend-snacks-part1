@@ -108,7 +108,7 @@ If you need to change a background image, you can use the [Intersection Observer
 - https://caniuse.com/css-container-queries-style
 - https://developer.mozilla.org/en-US/blog/getting-started-with-css-container-queries/
 
-### HTML dialog
+### HTML dialog element
 
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
 
@@ -122,3 +122,8 @@ If you need to change a background image, you can use the [Intersection Observer
 
 - https://www.debugbear.com/blog/defer-offscreen-images
 - https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+
+### Text fragments
+
+- https://developer.mozilla.org/en-US/docs/Web/URI/Fragment/Text_fragments
+- https://alfy.blog/2024/10/19/linking-directly-to-web-page-content.html
