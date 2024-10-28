@@ -113,6 +113,9 @@
               100px
             </p>
           </div>
+          <div class="container5 bg-indigo-400 rounded-md p-2">
+            <p>That is mighty cool!</p>
+          </div>
         </section>
         <dialog id="jokeDialog" class="w-64">
           <form id="dialogForm" method="dialog">
@@ -173,6 +176,11 @@
               The <code>dialog</code> elements gives you all of the modal
               niceties for free!
             </p>
+            <p class="text-center my-4">
+              <a target="_blank" href="https://caniuse.com/dialog"
+                >Can I use it?</a
+              >
+            </p>
             <p class="text-center p-4 my-4">
               When a <code>form</code> within a <code>dialog</code> is submitted
               via the dialog method, the dialog box closes, the states of the
@@ -195,13 +203,6 @@
               <button type="submit" value="closeModalForm" formnovalidate>
                 Close
               </button>
-
-              <!-- <input
-                type="submit"
-                aria-label="close"
-                value="Close"
-                formnovalidate
-              /> -->
               <input type="reset" value="Clear form" />
             </div>
           </form>
@@ -617,7 +618,7 @@
           (entries, observer) => {
             entries.forEach((entry, index) => {
               if (entry.isIntersecting) {
-                console.log(`IS INTERSECTING `);
+                console.log(`IS INTERSECTING`);
                 observer.unobserve(entry.target);
               }
             });

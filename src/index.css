@@ -82,7 +82,7 @@ dialog {
   container-type: inline-size;
 
   p {
-    padding: 5cqi;
+    padding: 5cqi; /* 5% padding relative to the container width */
   }
 }
 
@@ -100,10 +100,14 @@ dialog {
   container-name: container4;
   container-type: size;
 }
+.container5 {
+  container-type: inline-size;
+}
 
 @container (width > 200px) {
   p {
     color: rgb(247, 203, 255);
+    font-weight: bold;
   }
 }
 
@@ -146,6 +150,7 @@ dialog {
   }
 }
 
+/* YUP....Nesting is in css now */
 .concur {
   .concur-warning {
     display: grid;
