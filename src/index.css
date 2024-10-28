@@ -191,3 +191,8 @@ dialog {
     height: 100px;
   }
 }
+
+.video {
+  height: 300px;
+  width: 533px;
+}

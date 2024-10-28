@@ -528,6 +528,12 @@
           </div>
 
           <div
+            class="video text-center bg-indigo-400 flex justify-center content-center items-center mt-8 self-center"
+          >
+            <p class="flex text-center items-center text-xl px-8">VIDEO</p>
+          </div>
+
+          <div
             class="toBeObserved text-center bg-indigo-400 flex justify-center content-center items-center mt-8"
           >
             <p class="bg-indigo-600 flex text-center items-center text-xl px-8">
@@ -551,7 +557,7 @@
           <div>
             <p class="text-center my-4">
               <a href="/#:~:text=xkcd"
-                >Text fragments; hightlight and navigate stuff on a page</a
+                >Text fragments; hightlight and navigate to stuff on a page</a
               >
             </p>
             <p class="text-center my-4">
@@ -587,12 +593,18 @@
       });
 
       function submitAddressForm(ev) {
-        console.log('submitAddressForm');
         ev.preventDefault();
+
         document
           .querySelector('#addressForm #streetAddress')
           .classList.add('error');
       }
+
+      dialogForm.addEventListener('submit', async (event) => {
+        const dialogFormFormData = new FormData(dialogForm);
+        const dialogFormData = Object.fromEntries(dialogFormFormData.entries());
+        console.log('dialogFormData', dialogFormData);
+      });
 
       document
         .querySelector('#addressForm')
@@ -601,8 +613,7 @@
       document.addEventListener('DOMContentLoaded', () => {
         const elementsToBeObserved = document.querySelectorAll('.toBeObserved');
 
-        // creates the observer
-        const elementObserver = new IntersectionObserver(
+        const toBeObservedObserver = new IntersectionObserver(
           (entries, observer) => {
             entries.forEach((entry, index) => {
               if (entry.isIntersecting) {
@@ -611,7 +622,6 @@
               }
             });
           },
-
           {
             // An element or document object which is an ancestor of the intended target, whose bounding rectangle will be considered the viewport.
             // null = document viewport
@@ -624,7 +634,34 @@
         );
 
         elementsToBeObserved.forEach((element) =>
-          elementObserver.observe(element)
+          toBeObservedObserver.observe(element)
+        );
+
+        const videosToBeObserved = document.querySelectorAll('.video');
+
+        const videosToBeObservedObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                console.log('VIDEO PLAY');
+              } else {
+                console.log('VIDEO PAUSE');
+              }
+            });
+          },
+          {
+            // An element or document object which is an ancestor of the intended target, whose bounding rectangle will be considered the viewport.
+            // null = document viewport
+            root: null,
+            //  A string which specifies a set of offsets to add to the root's bounding_box when calculating intersections, effectively shrinking or growing the root for calculation purposes.
+            rootMargin: '200px 0px',
+            // Specifies the intersection threshold when the callback function will be executed.
+            threshold: 0,
+          }
+        );
+
+        videosToBeObserved.forEach((element) =>
+          videosToBeObservedObserver.observe(element)
         );
       });
     </script>
