@@ -604,7 +604,7 @@
       dialogForm.addEventListener('submit', async (event) => {
         const dialogFormFormData = new FormData(dialogForm);
         const dialogFormData = Object.fromEntries(dialogFormFormData.entries());
-        console.log('dialogFormData', dialogFormData);
+        console.log('dialogFormData', dialogFormData, event);
       });
 
       document
